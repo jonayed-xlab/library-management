@@ -24,11 +24,28 @@ public class UserRepository implements PanacheRepository<User> {
     }
 
     @Transactional
-    public User updateUser(User updatedUser) {
-        User user = findById(updatedUser.getId());
+    public User updateUser(Long userId, User updatedUser) {
+        User user = findById(userId);
         if (user != null) {
-            persist(updatedUser);
-            return updatedUser;
+            // Update the existing user with values from updatedUser
+            user.setActive(updatedUser.getActive());
+            user.setFirstName(updatedUser.getFirstName());
+            user.setLastName(updatedUser.getLastName());
+            user.setFullName(updatedUser.getFullName());
+            user.setUserName(updatedUser.getUserName());
+            user.setDateOfBirth(updatedUser.getDateOfBirth());
+            user.setEmail(updatedUser.getEmail());
+            user.setDepartment(updatedUser.getDepartment());
+            user.setEnrollYear(updatedUser.getEnrollYear());
+            user.setRoleId(updatedUser.getRoleId());
+            user.setPhotoId(updatedUser.getPhotoId());
+            user.setPhoneNumber(updatedUser.getPhoneNumber());
+            user.setPresentAddress(updatedUser.getPresentAddress());
+            user.setPermanentAddress(updatedUser.getPermanentAddress());
+            user.setStudentId(updatedUser.getStudentId());
+            user.setPassword(updatedUser.getPassword());
+
+            return user;
         }
         return null;
     }

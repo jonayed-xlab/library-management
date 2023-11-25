@@ -20,8 +20,8 @@ public class UserService {
         return userRepository.addUser(user);
     }
 
-    public User updateUser(User user) {
-        return userRepository.updateUser(user);
+    public User updateUser(Long userId, User user) {
+        return userRepository.updateUser(userId, user);
     }
 
     public void deleteUser(Long id) {

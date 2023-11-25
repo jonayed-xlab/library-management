@@ -1,18 +1,21 @@
 package org.jb.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "app_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "active")
-    private boolean active;
+    private Integer active;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")

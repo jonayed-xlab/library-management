@@ -26,13 +26,14 @@ public class UserResource {
     }
 
     @PUT
-    public  User updateUser(User user){
-        return userService.updateUser(user);
+    @Path("/{userId}")
+    public  User updateUser(@PathParam("userId") Long userId, User user){
+        return userService.updateUser(userId, user);
     }
 
     @DELETE
-    @Path("/{id}")
-    public void deleteUser(@PathParam("id") Long id){
+    @Path("/{userId}")
+    public void deleteUser(@PathParam("userId") Long id){
         userService.deleteUser(id);
     }
 }
