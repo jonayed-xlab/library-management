@@ -1,20 +1,25 @@
 package org.jb.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "name")
+    private Long book_id;
+    @Column(name = "book_name")
     private String name;
-    @Column(name = "title")
+    @Column(name = "book_title")
     private String title;
     @Column(name = "year")
     private Integer year;
@@ -30,12 +35,12 @@ public class Book {
     private String status;
     @Column(name = "page_no")
     private String pageNo;
-    @Column(name = "limit")
-    private String limit;
+    @Column(name = "book_limit")
+    private String bookLimit;
     @Column(name = "delay_fine")
     private BigDecimal delayFine;
     @Column(name = "photo_key")
     private String photoKey;
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "description")
+    private String description;
 }

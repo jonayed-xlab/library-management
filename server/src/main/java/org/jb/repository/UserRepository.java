@@ -13,8 +13,8 @@ public class UserRepository implements PanacheRepository<User> {
         return listAll();
     }
 
-    public User getUserByStudentId(Long id) {
-        return findById(id);
+    public User getUserByStudentId(Long userId) {
+        return findById(userId);
     }
 
     @Transactional
@@ -27,7 +27,6 @@ public class UserRepository implements PanacheRepository<User> {
     public User updateUser(Long userId, User updatedUser) {
         User user = findById(userId);
         if (user != null) {
-            // Update the existing user with values from updatedUser
             user.setActive(updatedUser.getActive());
             user.setFirstName(updatedUser.getFirstName());
             user.setLastName(updatedUser.getLastName());
@@ -51,10 +50,12 @@ public class UserRepository implements PanacheRepository<User> {
     }
 
     @Transactional
-    public void deleteUser(Long id) {
+    public String deleteUser(Long id) {
         User user = findById(id);
         if (user != null) {
             delete(user);
+            return "User delete successfully";
         }
+        return "User not found";
     }
 }

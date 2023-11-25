@@ -1,24 +1,29 @@
 package org.jb.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "borrow")
 public class Borrow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long borrow_id;
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
     @Column(name = "book_id")
-    private int bookId;
-    @Column(name = "from")
+    private long bookId;
+    @Column(name = "from_date")
     private String fromDateTime;
-    @Column(name = "to")
+    @Column(name = "to_date")
     private String toDateTime;
     @Column(name = "total_day")
     private String totalDay;
@@ -32,6 +37,6 @@ public class Borrow {
     private BigDecimal delayFine;
     @Column(name = "status")
     private String status;
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "description")
+    private String description;
 }

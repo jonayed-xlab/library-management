@@ -1,17 +1,18 @@
 package org.jb.entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "menu")
-public class Menu {
+public class Menu extends PanacheEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long menu_id;
     @Column(name = "name")
-    private String roleName;
-    @Column(name = "desc")
-    private String desc;
+    private String name;
+    @Column(name = "description")
+    private String description;
 }

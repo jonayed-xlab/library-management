@@ -24,7 +24,8 @@ public class UserService {
         return userRepository.updateUser(userId, user);
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteUser(id);
+    public String deleteUser(Long id) {
+        String userResponse = userRepository.deleteUser(id);
+        return userResponse;
     }
 }
