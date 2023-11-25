@@ -26,13 +26,13 @@ public class Borrow {
     @Column(name = "to_date")
     private String toDateTime;
     @Column(name = "total_day")
-    private String totalDay;
+    private Integer totalDay;
     @Column(name = "checkin")
     private String checkinDateTime;
     @Column(name = "checkout")
     private String checkoutDateTime;
     @Column(name = "return_total_day")
-    private String returnTotalDay;
+    private Integer returnTotalDay;
     @Column(name = "delay_fine")
     private BigDecimal delayFine;
     @Column(name = "status")

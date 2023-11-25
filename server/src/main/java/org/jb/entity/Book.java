@@ -40,7 +40,7 @@ public class Book {
     @Column(name = "delay_fine")
     private BigDecimal delayFine;
     @Column(name = "photo_key")
-    private String photoKey;
+    private Integer photoKey;
     @Column(name = "description")
     private String description;
 }

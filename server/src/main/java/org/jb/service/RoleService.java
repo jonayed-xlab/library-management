@@ -20,6 +20,7 @@ public class RoleService {
         return roleRepository.addRole(role);
     }
 
+
     public Role updateRole(Long roleId, Role role) {
         return roleRepository.updateRole(roleId, role);
     }
