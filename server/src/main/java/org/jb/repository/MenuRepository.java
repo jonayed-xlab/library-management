@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import org.jb.entity.Menu;
 
 import java.util.List;
+import java.util.Set;
 
 @ApplicationScoped
 public class MenuRepository implements PanacheRepository<Menu> {
@@ -44,4 +45,5 @@ public class MenuRepository implements PanacheRepository<Menu> {
         }
         return "Menu not found!";
     }
+
 }

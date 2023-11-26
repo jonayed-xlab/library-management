@@ -3,15 +3,18 @@ package org.jb.repository;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
+import org.jb.entity.Menu;
 import org.jb.entity.Role;
 
 import java.util.List;
+import java.util.Set;
 
 @ApplicationScoped
 public class RoleRepository implements PanacheRepository<Role> {
 
     public List<Role> getAllRole() {
-        return listAll();
+        List<Role> roles = listAll();
+        return roles;
     }
 
     @Transactional
@@ -30,6 +33,7 @@ public class RoleRepository implements PanacheRepository<Role> {
         }
         return null;
     }
+
     @Transactional
     public String deleteRole(Long roleId) {
         Role role = findById(roleId);

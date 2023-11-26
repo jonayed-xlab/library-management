@@ -34,7 +34,7 @@ public class RoleResource {
 
     @POST
     public Response addRole(Role role) {
-        Role roleResponse = roleService.addRole(role);
+        Role roleResponse = roleService.addRoleWithMenus(role);
         if (roleResponse != null) {
             return Response.status(Response.Status.OK)
                     .entity(roleResponse)
