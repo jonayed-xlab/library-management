@@ -3,6 +3,8 @@ package org.jb.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Entity
 @Data
@@ -12,7 +14,7 @@ import lombok.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long userId;
     @Column(name = "active")
     private Integer active;
     @Column(name = "first_name")
@@ -42,8 +44,9 @@ public class User {
     @Column(name = "password")
     private String password;
     @Column(name = "role_id")
-    private Integer roleId;
+    private Long roleId;
     @Column(name = "photo_id")
-    private Integer photoId;
+    private Long photoId;
+
 
 }

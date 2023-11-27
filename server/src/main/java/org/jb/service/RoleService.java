@@ -23,7 +23,9 @@ public class RoleService {
         return roleRepository.getAllRole();
     }
 
-
+    public Role findByRoleId(Long roleId){
+        return roleRepository.findById(roleId);
+    }
     @Transactional
     public Role addRoleWithMenus(Role role) {
         roleRepository.addRole(role);
@@ -33,7 +35,6 @@ public class RoleService {
         }
         return roleRepository.findById(role.getRoleId());
     }
-
 
     public Role updateRole(Long roleId, Role role) {
         return roleRepository.updateRole(roleId, role);

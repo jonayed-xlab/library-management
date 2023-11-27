@@ -2,6 +2,8 @@ package org.jb.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import org.jb.dto.LoginDto;
 import org.jb.entity.User;
 import org.jb.repository.UserRepository;
 
@@ -14,6 +16,15 @@ public class UserService {
 
     public List<User> getAllUser() {
         return userRepository.getAllUser();
+    }
+
+    @Transactional
+    public User findByUsernameAndPassword(String userName, String password) {
+        return userRepository.findByUsernameAndPassword(userName, password);
+    }
+
+    public User findByUserId(Long userId){
+        return userRepository.findById(userId);
     }
 
     public User addUser(User user) {

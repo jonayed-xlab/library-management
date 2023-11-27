@@ -13,8 +13,9 @@ public class UserRepository implements PanacheRepository<User> {
         return listAll();
     }
 
-    public User getUserByStudentId(Long userId) {
-        return findById(userId);
+    @Transactional
+    public User findByUsernameAndPassword(String userName, String password) {
+        return find("userName = ?1 and password = ?2", userName, password).firstResult();
     }
 
     @Transactional
